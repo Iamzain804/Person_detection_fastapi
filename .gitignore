@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+.env
+
+# Node / React
+node_modules/
+dist/
+.DS_Store
+.vscode/
+
+# AI Models
+*.pt
+*.onnx
+
+# Logs
+logs/
+*.log
