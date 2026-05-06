@@ -1,0 +1,93 @@
+:root {
+  --neon-blue: #00d2ff;
+  --neon-blue-glow: rgba(0, 210, 255, 0.5);
+  --dark-bg: #050505;
+  --card-bg: #111111;
+  --border-color: #222222;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--dark-bg);
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px var(--neon-blue-glow);
+  color: var(--neon-blue);
+}
+
+.neon-border {
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.neon-border:hover {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 20px var(--neon-blue-glow);
+}
+
+.btn-neon {
+  background: transparent;
+  color: var(--neon-blue);
+  border: 2px solid var(--neon-blue);
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-neon:hover {
+  background: var(--neon-blue);
+  color: black;
+  box-shadow: 0 0 30px var(--neon-blue);
+}
+
+.webcam-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+.detection-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bounding-box {
+  position: absolute;
+  border: 2px solid var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue);
+  background: rgba(0, 210, 255, 0.1);
+}
+
+.label-tag {
+  position: absolute;
+  top: -25px;
+  left: -2px;
+  background: var(--neon-blue);
+  color: black;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
