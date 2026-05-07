@@ -8,9 +8,16 @@ from app.core.exceptions import PersonDetectionException
 from app.core.config import get_settings
 from app.utils.logger import logger
 
+from app.core.database import engine, Base
+# Import models to ensure they are registered with Base
+from app.models import detection
+
 settings = get_settings()
 
 app = FastAPI(title=settings.PROJECT_NAME)
+
+# Create tables
+Base.metadata.create_all(bind=engine)
 
 # CORS Middleware
 app.add_middleware(
