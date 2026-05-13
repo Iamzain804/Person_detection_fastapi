@@ -19,6 +19,11 @@ def setup_logger():
     logger.addHandler(console_handler)
 
     # File Handler
+    import os
+    log_dir = os.path.dirname(settings.LOG_FILE)
+    if log_dir and not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+
     file_handler = RotatingFileHandler(
         settings.LOG_FILE, maxBytes=10485760, backupCount=5
     )
