@@ -17,3 +17,10 @@ def test_detect_no_auth():
     with TestClient(app) as client:
         response = client.post("/api/v1/detect")
         assert response.status_code == 401 # Unauthorized
+
+def test_version():
+    """Test the version endpoint"""
+    with TestClient(app) as client:
+        response = client.get("/version")
+        assert response.status_code == 200
+        assert response.json() == {"version": "1.0.0"}
