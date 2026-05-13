@@ -56,9 +56,19 @@ async def startup_event():
     model_service.load_model()
     logger.info("API is ready to serve requests.")
 
+from datetime import datetime
+
 # Include Routes
 app.include_router(detection_router, prefix="/api/v1")
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Person Detection API", "status": "running"}
+    return {
+        "message": "Welcome to Person Detection API",
+        "status": "running",
+        "server_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+
+@app.get("/version")
+async def get_version():
+    return {"version": "1.0.0"}
