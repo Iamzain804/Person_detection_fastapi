@@ -8,6 +8,20 @@ class Settings(BaseSettings):
     LOG_FILE: str = "logs/api.log"
     DEBUG: bool = True
 
+    # Database Settings
+    DATABASE_TYPE: str = "sqlite" # Default to sqlite
+    POSTGRES_USER: str = "postgres"
+    POSTGRES_PASSWORD: str = "password"
+    POSTGRES_SERVER: str = "localhost"
+    POSTGRES_PORT: str = "5432"
+    POSTGRES_DB: str = "person_detection"
+
+    @property
+    def DATABASE_URL(self) -> str:
+        if self.DATABASE_TYPE == "postgresql":
+            return f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
+        return "sqlite:///./sql_app.db"
+
     class Config:
         env_file = ".env"
 
