@@ -7,7 +7,12 @@ def test_read_root():
     """Test standard root endpoint"""
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Welcome to Person Detection API", "status": "running"}
+    data = response.json()
+    # Check core fields
+    assert data["message"] == "Welcome to Person Detection API"
+    assert data["status"] == "running"
+    # Check if server_time exists (dynamic value, so we just check presence)
+    assert "server_time" in data
 
 def test_detect_no_auth():
     """Test that detection fails without API key"""
