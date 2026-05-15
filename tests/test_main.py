@@ -2,7 +2,6 @@ from fastapi.testclient import TestClient
 from app.main import app
 import pytest
 
-# Using a context manager for the client to be safer with newer versions
 def test_read_root():
     """Test standard root endpoint"""
     with TestClient(app) as client:
@@ -17,6 +16,14 @@ def test_detect_no_auth():
     with TestClient(app) as client:
         response = client.post("/api/v1/detect")
         assert response.status_code == 401 # Unauthorized
+
+def test_health_check():
+    """Test health check endpoint"""
+    with TestClient(app) as client:
+        response = client.get("/health")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["status"] == "healthy"
 
 def test_version():
     """Test the version endpoint"""

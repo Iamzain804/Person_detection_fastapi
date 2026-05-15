@@ -72,3 +72,7 @@ async def root():
 @app.get("/version")
 async def get_version():
     return {"version": "1.0.0"}
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
