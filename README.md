@@ -1,6 +1,6 @@
 ---
-title: Synavos Person Detection API
-emoji: 👥
+title: Ai Person Detector Api
+emoji: 🚀
 colorFrom: blue
 colorTo: indigo
 sdk: docker
