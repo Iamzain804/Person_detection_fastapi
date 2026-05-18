@@ -1,3 +1,13 @@
+---
+title: Synavos Person Detection API
+emoji: 👥
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Person Detection API (Production-Grade)
 
 A high-performance, scalable API for person detection using FastAPI and YOLOv8.
